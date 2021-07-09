@@ -1,5 +1,5 @@
 {
-    "name": "babenkoivan/elastic-scout-driver-plus",
+    "name": "akweidler/elastic-scout-driver-plus",
     "description": "Extension for Elastic Scout Driver",
     "keywords": [
         "scout",
@@ -15,6 +15,10 @@
         {
             "name": "Ivan Babenko",
             "email": "babenko.i.a@gmail.com"
+        },
+        {
+            "name": "Austin Weidler",
+            "email": "austin@brightspike.io"
         }
     ],
     "funding": [
@@ -39,7 +43,7 @@
     },
     "require": {
         "php": "^7.2 || ^8.0",
-        "babenkoivan/elastic-adapter": "^1.16",
+        "akweidler/elastic-adapter": "^1.16",
         "babenkoivan/elastic-scout-driver": "^1.4.0"
     },
     "require-dev": {
