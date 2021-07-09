@@ -1,5 +1,5 @@
 {
-    "name": "akweidler/elastic-scout-driver-plus",
+    "name": "babenkoivan/elastic-scout-driver-plus",
     "description": "Extension for Elastic Scout Driver",
     "keywords": [
         "scout",
@@ -43,7 +43,7 @@
     },
     "require": {
         "php": "^7.2 || ^8.0",
-        "akweidler/elastic-adapter": "^1.16",
+        "babenkoivan/elastic-adapter": "^1.16a.0",
         "babenkoivan/elastic-scout-driver": "^1.4.0"
     },
     "require-dev": {
