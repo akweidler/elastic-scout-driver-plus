@@ -83,6 +83,14 @@ class SearchRequestBuilder
      * @var array
      */
     private $indicesBoost = [];
+    /**
+     * @var array|null
+     */
+    private $scriptFields;
+    /**
+     * @var array|null
+     */
+    private $runtimeMappings;
 
     public function __construct(Model $model, QueryBuilderInterface $queryBuilder)
     {
@@ -258,6 +266,16 @@ class SearchRequestBuilder
         return $this;
     }
 
+    public function scriptFields(array $scriptFields): self{
+        $this->scriptFields = $scriptFields;
+        return $this;
+    }
+
+    public function runtimeMappings(array $runtimeMappings): self{
+        $this->runtimeMappings = $runtimeMappings;
+        return $this;
+    }
+
     public function buildSearchRequest(): SearchRequest
     {
         $searchRequest = new SearchRequest($this->queryBuilder->buildQuery());
@@ -312,6 +330,14 @@ class SearchRequestBuilder
 
         if (!empty($this->indicesBoost)) {
             $searchRequest->setIndicesBoost($this->indicesBoost);
+        }
+
+        if(!empty($this->scriptFields)){
+            $searchRequest->scriptFields($this->scriptFields);
+        }
+
+        if(!empty($this->runtimeMappings)){
+            $searchRequest->runtimeMappings($this->runtimeMappings);
         }
 
         return $searchRequest;
