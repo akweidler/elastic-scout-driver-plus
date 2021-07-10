@@ -44,6 +44,10 @@ final class QueryMatch implements Arrayable
         return $this->hit->getDocument();
     }
 
+    public function fields(): Document{
+        return $this->hit->getFields();
+    }
+
     public function highlight(): ?Highlight
     {
         return $this->hit->getHighlight();

@@ -91,6 +91,10 @@ class SearchRequestBuilder
      * @var array|null
      */
     private $runtimeMappings;
+    /**
+     * @var array|null
+     */
+    private $fields;
 
     public function __construct(Model $model, QueryBuilderInterface $queryBuilder)
     {
@@ -188,6 +192,11 @@ class SearchRequestBuilder
     public function source(array $fields): self
     {
         $this->source = $fields;
+        return $this;
+    }
+
+    public function fields(array $fields): self{
+        $this->fields = $fields;
         return $this;
     }
 
@@ -338,6 +347,10 @@ class SearchRequestBuilder
 
         if(!empty($this->runtimeMappings)){
             $searchRequest->setRuntimeMappings($this->runtimeMappings);
+        }
+
+        if(!empty($this->fields)){
+            $searchRequest->setFields($this->fields);
         }
 
         return $searchRequest;
