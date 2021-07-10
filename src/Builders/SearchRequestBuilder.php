@@ -333,11 +333,11 @@ class SearchRequestBuilder
         }
 
         if(!empty($this->scriptFields)){
-            $searchRequest->scriptFields($this->scriptFields);
+            $searchRequest->setScriptFields($this->scriptFields);
         }
 
         if(!empty($this->runtimeMappings)){
-            $searchRequest->runtimeMappings($this->runtimeMappings);
+            $searchRequest->setRuntimeMappings($this->runtimeMappings);
         }
 
         return $searchRequest;
