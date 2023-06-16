@@ -61,6 +61,8 @@ class SearchParametersBuilder
     private ?bool $explain;
     private ?int $terminateAfter;
     private ?bool $requestCache;
+    private ?array $scriptFields;
+    private ?array $runtimeMappings;
 
     public function __construct(Model $model)
     {
@@ -154,6 +156,16 @@ class SearchParametersBuilder
     public function suggest(string $suggestion, array $parameters): self
     {
         $this->suggest[$suggestion] = $parameters;
+        return $this;
+    }
+
+    public function scriptFields(array $scriptFields): self{
+        $this->scriptFields = $scriptFields;
+        return $this;
+    }
+
+    public function runtimeMappings(array $runtimeMappings): self{
+        $this->runtimeMappings = $runtimeMappings;
         return $this;
     }
 
@@ -395,6 +407,14 @@ class SearchParametersBuilder
 
         if (!empty($this->indicesBoost)) {
             $searchParameters->indicesBoost($this->indicesBoost);
+        }
+
+        if(!empty($this->scriptFields)){
+            $searchParameters->scriptFields($this->scriptFields);
+        }
+
+        if(!empty($this->runtimeMappings)){
+            $searchParameters->runtimeMappings($this->runtimeMappings);
         }
 
         if (isset($this->searchType)) {
