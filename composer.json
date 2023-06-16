@@ -1,5 +1,5 @@
 {
-    "name": "babenkoivan/elastic-scout-driver-plus",
+    "name": "akweidler/elastic-scout-driver-plus",
     "description": "Extension for Elastic Scout Driver",
     "version": "4.5.0",
     "keywords": [
@@ -50,7 +50,7 @@
     "require-dev": {
         "phpunit/phpunit": "^9.5",
         "orchestra/testbench": "^8.0",
-        "babenkoivan/elastic-migrations": "^3.3",
+        "akweidler/elastic-migrations": "^3.3",
         "laravel/scout": "^10.0",
         "friendsofphp/php-cs-fixer": "^3.14",
         "phpstan/phpstan": "^1.10",
